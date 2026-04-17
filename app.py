@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify
 import joblib
 
-app = Flask(__name__)
+application = Flask(__name__)
+
 
 # Load model
 model = joblib.load('sentiment_model.joblib')
 
-@app.route('/predict', methods=['POST'])
+@application.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
 
